@@ -1,0 +1,36 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+<script src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<!-- <script src="jquery.js"></script> -->
+<style>
+	.load{
+		color: red;
+	}
+</style>
+</head>
+<body>
+	<input type="text" name="username" id="username">
+	<input type="button" value="检验">
+	<div class="load"></div>
+	<script>
+		$("input[type=button]").click(function () {
+			var url = 'pro.php';
+			var sendData = {'username':$('#username').val()}
+			$.get(url+'?date='+Math.random(),sendData,function(data){
+					if(data == 'true'){
+						$('.load').html('用户名可以使用');
+					}else{
+						$('.load').html('用户名不可以是admin');
+					}
+			})
+
+			// $.get('test.txt?date='+Math.random(),function(data){
+			// 	$('.load').html(data)
+			// })
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+@media only screen and (min-width: 768px){
+	.navbox{max-width: 960px;margin: 0 auto;}
+	.navbox .nav{float: right}
+	#list1{position: relative;}
+
+
+
+
+	.con-text{padding-top: 12%;position: relative;}
+	.con-text h2{text-align: left;padding-left: 100px;}
+	.con-text p{padding-top:10px;padding-left: 100px;}
+
+	#login-img,#chark-img,#quanzi-img{position: relative;}
+	#text1{}
+	#text2{position: relative;}
+	#text1 h2,#text1 p,#text2 h2,#text2 p,#text3 h2,#text3 p{position: relative;}
+
+}
+@media only screen and (max-width: 768px){
+
+
+	
+	.con-text p{padding-top:10px;text-align:center;}
+}

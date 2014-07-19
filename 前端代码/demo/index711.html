@@ -1,0 +1,44 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+<script src="jquery.js"></script>
+<style>
+	.load{
+		color: red;
+	}
+</style>
+</head>
+<body>
+	<input type="button" value="获取新闻列表">
+	<div class="info">
+		<img src="loading.gif" alt="loading" style="display:none">
+		<ul></ul>
+	</div>
+	<script>
+		$("input[type=button]").click(function () {
+			var ul = $('.info>ul')
+			var url = 'test.txt?'+Math.random();
+			var sendData = {'username':$('#username').val()};
+			$.ajax({
+				url:url,
+				type:'get',
+				success:function(data){
+					// var res = eval(data);
+					// alert(data)
+					// for (var i = 0; i < res.length; i++) {
+					// 	ul.append('<li>'+res[i].title+'<em>'+res[i].time+'</em>'+'</li>');
+					// };
+					$('.info').html(data);
+				}
+			});
+		})
+		$(document).ajaxStart(function() {
+			$('.info>img').show();
+		}).ajaxStop(function(){
+			$('.info>img').hide();
+		})
+	</script>
+</body>
+</html>

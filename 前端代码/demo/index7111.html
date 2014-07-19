@@ -1,0 +1,50 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+<script src="jquery.js"></script>
+<style>
+	.load{
+		color: red;
+	}
+</style>
+</head>
+<body>
+	<form id="form">
+		用户名: <input type="text" name="username" id="username"> <br>
+		邮箱地址: <input type="text" name="email" id="email"><br>
+		url地址: <input type="text" name="url" id="url"><br>
+		QQ: <input type="text" name="qq" id="qq"><br>
+		skype: <input type="text" name="sky" id="sky"><br>
+		<input type="button" value="提交">
+	</form>
+	<script>
+		$("input[type=button]").click(function () {
+			var ul = $('.info>ul')
+			var url = '711.php';
+			//var sendData = {'username':$('#username').val()};
+			var data = $('#form').serialize();
+			$.ajax({
+				url:url,
+				type:'post',
+				data:data,
+				success:function(data){
+					// var res = eval(data);
+					// alert(data)
+					// for (var i = 0; i < res.length; i++) {
+					// 	ul.append('<li>'+res[i].title+'<em>'+res[i].time+'</em>'+'</li>');
+					// };
+					// $('.info').html(data);
+
+				}
+			});
+		})
+		$(document).ajaxStart(function() {
+			$('.info>img').show();
+		}).ajaxStop(function(){
+			$('.info>img').hide();
+		})
+	</script>
+</body>
+</html>

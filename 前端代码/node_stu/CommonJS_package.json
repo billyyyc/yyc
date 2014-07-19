@@ -1,0 +1,17 @@
+{
+	"name":"mypackage",
+	"description":"Sample package for CommonJS.This package demonstrates the required elements of a CommonJS package.",
+	"version":"0.7.0",
+	"keywords":["package","example"],
+	"maintainers":[],
+	"contributors":[],
+	"bugs":{},
+	"licenses":[],
+	"repositories":[
+		{
+			"url":"http://",
+			"type":"git"
+		}
+	],
+	"dependencies":{}
+}

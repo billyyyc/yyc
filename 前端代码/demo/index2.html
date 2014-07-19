@@ -1,0 +1,159 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<style>
+	*{margin: 0}
+	body{position: relative;}
+	table{border: 1px solid #ccc;width: 600px;border-collapse: collapse;text-align: center;}
+	th{border: 1px solid #abcdef;}
+	tr{border: 1px solid #abcdef;}
+	td{border: 1px solid #abcdef;}
+	td a{margin-right: 5px;color: #f00;}
+	.popDiv{display: none; border: 1px solid red;width: 300px;margin: 0 auto;padding: 5px;background: #fff;z-index:4;position: relative;}
+	.popDiv p{border-bottom: 1px solid red;height: 36px;}
+	.popDiv p strong{line-height: 36px;}
+	.popDiv p span{padding-left: 10px;font-size: 12px;color: #ccc;}
+
+	.popDiv1{display: none; border: 1px solid red;width: 300px;margin: 0 auto;padding: 5px;background: #fff;z-index:4;position: relative;}
+	.popDiv1 p{border-bottom: 1px solid red;height: 36px;}
+	.popDiv1 p strong{line-height: 36px;}
+	.popDiv1 p span{padding-left: 10px;font-size: 12px;color: #ccc;}
+</style>
+<script src="jquery.js"></script>
+<body>
+	<table>
+		<tr>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>职位</th>
+			<th>工资</th>
+			<th>操作</th>
+		</tr>
+	
+		<tr>
+			<td>张三</td>
+			<td>23</td>
+			<td>前端</td>
+			<td>15000</td>
+			<td><a href="#" class="view">查看</a><a href="#" class="del">删除</a><a href="#" class="res">修改</a></td>
+		</tr>
+	
+		<tr>
+			<td>李四</td>
+			<td>24</td>
+			<td>前端</td>
+			<td>12000</td>
+			<td><a href="#" class="view">查看</a><a href="#" class="del">删除</a><a href="#" class="res">修改</a></td>
+		</tr>
+	
+		<tr>
+			<td>王五</td>
+			<td>23</td>
+			<td>前端</td>
+			<td>10000</td>
+			<td><a href="#" class="view">查看</a><a href="#" class="del">删除</a><a href="#" class="res">修改</a></td>
+		</tr>
+	</table>
+	<div class="popDiv">
+		<p><strong>姓名</strong><span></span></p>
+		<p><strong>年龄</strong><span></span></p>
+		<p><strong>职位</strong><span></span></p>
+		<p><strong>工资</strong><span></span></p>
+		<a href="#" class="close">关闭</a>
+	</div>
+	<div class="popDiv1">
+		<p><strong>姓名</strong><input></input></p>
+		<p><strong>年龄</strong><input></input></p>
+		<p><strong>职位</strong><input></input></p>
+		<p><strong>工资</strong><input></input></p>
+		<a href="#" class="save">保存</a>
+	</div>
+	<script>
+	//查看
+	$('.view').click(function() {
+		//遮罩层
+		var vwidth = $(document).width();
+		var vheight = $(document).height();
+		//alert(vheight)
+		$('<div class="mask"></div>').appendTo($('body'));
+		$('div.mask').css({
+			'opacity':'0.4',
+			'background':'#000',
+			'width':vwidth,
+			'height':vheight,
+			'position':'absolute',
+			'left':'0',
+			'top':'0',
+			'z-index':'2'
+		})
+
+		var arr = []
+		$(this).parent().siblings().each(function(){
+			arr.push($(this).text());
+		});
+		//alert(arr);
+
+		$('.popDiv').show().children().each(function(i){
+			$(this).children('span').text(arr[i])
+		})
+		
+		//关闭
+		$('.close').click(function(){
+			$(this).parent().hide();
+			$('div.mask').remove();
+		})
+
+	})
+	//删除
+	$('.del').click(function(){
+		$(this).parents('tr').remove();
+	})
+	//修改
+		$('.res').click(function() {
+		//遮罩层
+		var vthis =$(this);
+		var vwidth = $(document).width();
+		var vheight = $(document).height();
+		//alert(vheight)
+		$('<div class="mask"></div>').appendTo($('body'));
+		$('div.mask').css({
+			'opacity':'0.4',
+			'background':'#000',
+			'width':vwidth,
+			'height':vheight,
+			'position':'absolute',
+			'left':'0',
+			'top':'0',
+			'z-index':'2'
+		})
+
+		var arr = []
+		var arr1 = []
+		$(this).parent().siblings().each(function(){
+			arr.push($(this).text());
+		});
+		//alert(arr);
+
+		$('.popDiv1').show().children().each(function(i){
+			$(this).children('input').val(arr[i])
+		})
+		arr1.push($(this).children('input').val())
+		alert(arr1)
+		//保存
+		$('.save').click(function(){
+			vthis.parent().siblings().each(function(i){
+
+				$(this).text(arr1[i])
+			})
+			$(this).parent().hide();
+			$('div.mask').remove();
+		})
+
+	})
+</script>
+</body>
+
+</html>

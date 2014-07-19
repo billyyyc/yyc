@@ -1,0 +1,41 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title>选项卡</title> 
+<script src="jquery.js"></script>
+</head>
+<style>
+*{margin:0;padding: 0}
+	#con{margin: 100px;}
+	#con ul{list-style: none;}
+	#con ul li{float: left;width: 100px;height:30px;line-height:30px;text-align: center;margin-right:3px;border: 1px solid #abcdef;}
+	#con ul li.current{background: #abcdef;color: #fff;}
+	#con div{clear: both;width: 310px;height:200px;border:1px solid #abcdef;border-top: none;text-align: center;display: none;padding-top:50px;}
+	#con div.act{display: block;}
+</style>
+<body>
+	<div id="con">
+		<ul>
+			<li>html</li>
+			<li>css</li>
+			<li>javascript</li>
+		</ul>
+
+		<div class="act">html</div>
+		<div>css</div>
+		<div>javascript</div>
+	</div>
+	<script>
+		var oli = $('#con ul li');
+		var odiv = $('#con>div');
+
+		oli.on('mouseover',function () {
+			$(this).addClass('current').siblings().removeClass('current');
+			t = $(this).index();
+			odiv.eq(t).show().siblings('div').hide();
+		})
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+<script src="jquery.js"></script>
+<style>
+	.load{
+		width: 500px;
+		height: 300px;
+		border: 1px solid #abcdef;
+	}
+</style>
+</head>
+<body>
+	<input type="button" value="加载">
+	<div class="load"></div>
+	<script>
+		$("input[type=button]").click(function () {
+			$('.load').load('test.txt?date='+Math.random())
+		})
+	</script>
+</body>
+</html>

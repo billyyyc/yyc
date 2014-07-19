@@ -1,0 +1,39 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+<script src="jquery.js"></script>
+<style>
+	.load{
+		color: red;
+	}
+</style>
+</head>
+<body>
+	<input type="button" value="获取数据">
+	<div></div>
+	<script>
+		$("input[type=button]").click(function () {
+			var url = '71121.php';
+			var data = $('#form').serialize();
+			$.ajax({
+				url:url,
+				type:'get',
+				data:data,
+				success:function(data){
+					$('div').html(data)
+				}
+				error:function(){
+					
+				}
+			});
+		})
+		$(document).ajaxStart(function() {
+			$('.info>img').show();
+		}).ajaxStop(function(){
+			$('.info>img').hide();
+		})
+	</script>
+</body>
+</html>

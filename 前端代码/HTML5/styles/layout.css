@@ -1,0 +1,46 @@
+/*解决不支持html5标签,清除默认边距*/
+section,header,article,nav{display: block;}
+*{margin: 0;padding: 0}
+
+body{
+	margin: 1em 10%;
+	/*max-width: 80em;*/
+}
+
+header{
+	border:.1em solid;
+	border-bottom:none;  
+}
+header img.logo{
+	width: 100%;
+	display: block;
+	/*img不加这个会出现一条边*/
+}
+header nav{
+	border:.1em solid;
+	border-top: none;
+	border-bottom: none;
+	padding-left: 10%;
+}
+header nav ul{
+	width: 100%;
+	overflow: hidden;
+	border-left-width:.1em;
+	border-left-style: solid; 
+}
+header nav li{
+	display: inline;
+}
+header nav li a{
+	display: block;
+	float: left;
+	padding: .5em 2em;
+	border-right: .1em solid
+}
+
+article{
+	border:.1em solid;
+	border-top: none;
+	padding: 2em 10%;
+	line-height: 1.8em;
+}

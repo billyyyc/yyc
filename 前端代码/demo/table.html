@@ -1,0 +1,77 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+<style>
+	table{width: 100%;border: 1px solid #abcdef; border-collapse: collapse;}
+	th,td{height: 28px;border: 1px solid #abcdef;text-align: center;}
+	.evenRow1{background: #38a38a;}
+	.oddRow1{background: #09f;}
+	.currentRow1{background: yellow;}
+</style>
+<script src="jquery.js"></script>
+<script src="jquery-table-1.0.js"></script>
+</head>
+<body>
+	<!-- 
+		开发一个插件:
+			要求奇数行#38a38a;
+			偶数行#09f;
+			hove的时候yellow; 
+	-->
+	<table id="table1">
+		<tr>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>身高</th>
+			<th>体重</th>
+		</tr>
+		<tr>
+			<td>张三</td>
+			<td>22</td>
+			<td>187</td>
+			<td>70KG</td>
+		</tr>
+		<tr>
+			<td>李四</td>
+			<td>24</td>
+			<td>157</td>
+			<td>40KG</td>
+		</tr>
+		<tr>
+			<td>王五</td>
+			<td>32</td>
+			<td>157</td>
+			<td>80KG</td>
+		</tr>
+		<tr>
+			<td>张三</td>
+			<td>22</td>
+			<td>187</td>
+			<td>70KG</td>
+		</tr>
+		<tr>
+			<td>李四</td>
+			<td>24</td>
+			<td>157</td>
+			<td>40KG</td>
+		</tr>
+		<tr>
+			<td>王五</td>
+			<td>32</td>
+			<td>157</td>
+			<td>80KG</td>
+		</tr>
+	</table>
+	<script>
+		$(function() {
+			$('#table1').table({
+				evenRowClass:'evenRow1',
+				oddRowClass:'oddRow1',
+				currentRowClass:'currentRow1'
+			});
+		})
+	</script>
+</body>
+</html>
