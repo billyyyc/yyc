@@ -18,21 +18,25 @@
 			var y = 200;
 			var r = 150;
 
-			oGC.strokeStyle = '#abcdef';
-			oGC.lineWidth = '10';
-			oGC.beginPath();
-			oGC.arc(x,y,r,oB,oR,false);
-			oGC.stroke();
+			oGC.clearRect(0,0,oC.width,oC.height);
+			for (var i = 0; i < 99; i++) {
+				oGC.strokeStyle = '#abcdef';
+				oGC.lineWidth = '20';
+				oGC.beginPath();
+				oGC.arc(x,y,r,(-25+i-1)*3.6*Math.PI/180,(-25+i)*3.6*Math.PI/180,false);
+				oGC.stroke();
 
-			oGC.font = "Bold 50px Arial";
-			oGC.fillStyle = "#ccc"; 
-			oGC.textAlign = "center";
-			oGC.fillText(t+'%',x,y+10);
-			
-			document.getElementById('num').innerHTML=t+'%';
+				oGC.font = "Bold 50px Arial";
+				oGC.fillStyle = "#ccc"; 
+				oGC.textAlign = "center";
+				oGC.fillText(t+'%',x,y+10);
+
+				
+			}
 		}
 		setInterval(function() {
 		toDraw();
+
 		},1000)
 	}
 </script>
